@@ -1,0 +1,6 @@
+C:\Users\erick\OneDrive\Escritorio\prueba\AppGym\Encrypt\bin\Debug\Encrypt.dll
+C:\Users\erick\OneDrive\Escritorio\prueba\AppGym\Encrypt\bin\Debug\Encrypt.pdb
+C:\Users\erick\OneDrive\Escritorio\prueba\AppGym\Encrypt\obj\Debug\Encrypt.csproj.AssemblyReference.cache
+C:\Users\erick\OneDrive\Escritorio\prueba\AppGym\Encrypt\obj\Debug\Encrypt.csproj.CoreCompileInputs.cache
+C:\Users\erick\OneDrive\Escritorio\prueba\AppGym\Encrypt\obj\Debug\Encrypt.dll
+C:\Users\erick\OneDrive\Escritorio\prueba\AppGym\Encrypt\obj\Debug\Encrypt.pdb
