@@ -20,6 +20,8 @@ namespace AppGym.Controllers
 
         public IActionResult Index()
         {
+
+            ViewData["me"] = "Erikc Francisco";
             return View();
         }
 

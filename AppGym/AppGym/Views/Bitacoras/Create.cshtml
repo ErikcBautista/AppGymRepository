@@ -1,15 +1,37 @@
-﻿@model AppGym.Models.Bitacoras
+﻿@model AppGym.Models.DataNotation.BitacorasDNotation
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["nameHeader"] = "Registro de bitacora";
+    ViewData["head"] = true;
 }
 
-<h1>Create</h1>
+<div style="margin: 0 auto">
+    <form asp-action="Create">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="">Fecha y hora de asistencia:</label>
+                    <input asp-for="Asistencia" class="form-control" />
+                    <span asp-validation-for="Asistencia" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="">Usuario:</label>
+                    <select asp-for="IdEmpleadoBitacora" class ="form-control"  asp-items="ViewBag.IdEmpleadoBitacora"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <a asp-action="Index">Regresar</a>
+        </div>
+    </form>
+</div>
 
-<h4>Bitacoras</h4>
-<hr />
-<div class="row">
+<@*div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -27,10 +49,10 @@
             </div>
         </form>
     </div>
-</div>
+</div>*@
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    
 </div>
 
 @section Scripts {

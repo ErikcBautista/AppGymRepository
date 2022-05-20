@@ -43,6 +43,28 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @{
+                if(ViewData["head"] != null )
+                {
+                    <div class="row">
+                        <div class="col-md-7">
+                            <br />
+                            <br />
+                            <div>
+                                <h1> @ViewData["nameHeader"] </h1>
+                            </div>
+                            <div>
+                                <p>
+                                    @ViewData["descriptionHeader"] <br />
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="/imgs//04012019-28.jpg" width="300" />
+                        </div>
+                    </div>
+                }
+            }
             @RenderBody()
         </main>
     </div>

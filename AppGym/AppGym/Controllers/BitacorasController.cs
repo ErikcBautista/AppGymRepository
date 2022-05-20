@@ -34,7 +34,11 @@ namespace AppGym.Controllers
             {
                 return Redirect("~/InicioSesion/Index");
             }
-            return View(_context.Bitacoras.ToList());
+            return View(
+                _context.Bitacoras
+                .Include(e => e.IdEmpleadoBitacoraNavigation)
+                .ToList()
+            );
         }
         // GET: Bitacoras/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -4,12 +4,80 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Edit</h1>
-
-<h4>Empleados</h4>
 <hr />
-<div class="row">
+
+<div style="margin: 0 auto">
+    <form asp-action="Edit">
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdEmpleado" />
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Nombre:</label>
+                    <input asp-for="NombresEmpleado" class="form-control" />
+                    <span asp-validation-for="NombresEmpleado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Apellidos:</label>
+                    <input asp-for="ApellidosEmpleado" class="form-control" />
+                    <span asp-validation-for="ApellidosEmpleado" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Telefono:</label>
+                    <input asp-for="TelefonoEmpleado" class="form-control" type="number" />
+                    <span asp-validation-for="TelefonoEmpleado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Nombre de inicio de sesion::</label>
+                    <input asp-for="NombreSesionEmpleado" class="form-control" />
+                    <span asp-validation-for="NombreSesionEmpleado" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Contraseña:</label>
+                    <input asp-for="PasswordEmpleado" class="form-control" type="password" id="pass" />
+                    <span asp-validation-for="PasswordEmpleado" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Confirmar contraseña:</label>
+                    <input class="form-control" type="password" id="passConf"/>
+                    <span  class="text-danger" id="spanPassConf"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="">Jornada asignada:</label>
+                    <select asp-for="IdJornadaEmpleado" class ="form-control" asp-items="ViewBag.IdJornadaEmpleado"></select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <a asp-action="Index">Regresar</a>
+        </div>
+            
+    </form>
+</div>
+
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -49,7 +117,7 @@
             </div>
         </form>
     </div>
-</div>
+</div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>
@@ -58,3 +126,20 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script type="module">
+    $("#passConf").keyup(
+        function()
+        {
+            let pass = document.getElementById("pass").value;
+            let passConf = document.getElementById("passConf").value;
+            if (pass !== passConf) 
+            {
+                $("#spanPassConf").text("Las contraseñas deben ser iguales");
+            }
+            else
+            {
+                $("#spanPassConf").text("");
+            }
+        }
+    )
+</script>

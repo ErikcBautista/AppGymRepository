@@ -1,15 +1,50 @@
-﻿@model AppGym.Models.Jornadas
+﻿@model AppGym.Models.DataNotation.JornadasDNotation
 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["nameHeader"] = "Crear nueva jornada";
+    ViewData["head"] = true;
 }
 
-<h1>Create</h1>
-
-<h4>Jornadas</h4>
 <hr />
-<div class="row">
+
+<div style="margin: 0 auto">
+    <form asp-action="Create">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label">Nombre de la jornada:</label>
+                    <input asp-for="NombreJornada" class="form-control" />
+                    <span asp-validation-for="NombreJornada" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label">Dias en numeros</label>
+                    <input asp-for="DiasJornada" class="form-control" type="number" />
+                    <span asp-validation-for="DiasJornada" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="label">Abreviatura de los dias</label>
+                    <input asp-for="NombreDias" class="form-control" />
+                    <span asp-validation-for="NombreDias" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index">Regresar</a>
+         </div>
+    </form>
+</div>
+
+
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -33,11 +68,8 @@
             </div>
         </form>
     </div>
-</div>
+</div>*@
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

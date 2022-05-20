@@ -33,7 +33,11 @@ namespace AppGym.Controllers
             {
                 return Redirect("~/InicioSesion/Index");
             }
-            return View(_context.Empleados.ToList());
+            return View(
+                _context.Empleados
+                .Include(e => e.IdJornadaEmpleadoNavigation)
+                .ToList()
+            );
         }
         // GET: Empleados/Details/5
         public async Task<IActionResult> Details(int? id)
